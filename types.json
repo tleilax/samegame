@@ -1,0 +1,9 @@
+[
+    {"class": "item-1", "chance": 5},
+    {"class": "item-2", "chance": 5},
+    {"class": "item-3", "chance": 5},
+    {"class": "item-4", "chance": 5},
+    {"class": "item-5", "chance": 5},
+    {"class": "item-6", "chance": 3},
+    {"class": "item-7", "chance": 1}
+]

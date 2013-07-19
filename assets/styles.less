@@ -1,0 +1,71 @@
+@size: 60px;
+@boxshadow-inset: inset -(@size / 8) -(@size / 8) (@size / 5) rgba(0,0,0,.5);
+.playfield {
+    background:
+        linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+        linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+        linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+        linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+        linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+        linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+    background-color: #131313;
+    background-size: 20px 20px;
+
+    border-collapse: collapse;
+    margin: auto;
+    &-field {
+        padding: 0;
+        width: @size;
+        height: @size;
+        text-align: center;
+        vertical-align: middle;
+    }
+    &-chain {
+        background: rgba(255, 63, 63, 0.5);
+    }
+    &-item {
+        cursor: pointer;
+        border: 1px solid #000;
+        border-radius: @size / 2;
+        box-shadow: @boxshadow-inset;
+        display: inline-block;
+        width: @size * 3 / 4;
+        height: @size * 3 / 4;
+        &:hover {
+            box-shadow: @boxshadow-inset, 0 0 (@size / 5) #fff, 0 0 1px #fff;
+        }
+    }
+}
+.item-1 {
+    background: #00f;
+}
+.item-2 {
+    background: #0f0;
+}
+.item-3 {
+    background: #f00;
+}
+.item-4 {
+    background: #ff0;
+}
+.item-5 {
+    background: #a4f;
+}
+.item-6 {
+    background: 
+        linear-gradient(63deg, #999 23%, transparent 23%) 7px 0, 
+        linear-gradient(63deg, transparent 74%, #999 78%), 
+        linear-gradient(63deg, transparent 34%, #999 38%, #999 58%, transparent 62%), 
+        #444;
+    background-size: 16px 48px;
+}
+.item-7 {
+    background:
+        radial-gradient(circle at 0% 50%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px) 0px 10px,
+        radial-gradient(at 100% 100%,     rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px),
+        #8a3;
+    background-size: 20px 20px;
+}
+button {
+    margin: auto;
+}

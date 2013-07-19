@@ -1,0 +1,67 @@
+.playfield {
+  margin: auto;
+  background: linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px, linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px, linear-gradient(27deg, #222222 5px, transparent 5px) 0px 10px, linear-gradient(207deg, #222222 5px, transparent 5px) 10px 5px, linear-gradient(90deg, #1b1b1b 10px, transparent 10px), linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+  background-color: #131313;
+  background-size: 20px 20px;
+  border-collapse: collapse;
+}
+
+.playfield-field {
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.playfield-chain {
+  background: rgba(255, 63, 63, 0.5);
+}
+
+.playfield-item {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  border: 1px solid #000;
+  border-radius: 30px;
+  box-shadow: inset -7.5px -7.5px 12px rgba(0, 0, 0, 0.5);
+}
+
+.playfield-item:hover {
+  box-shadow: inset -7.5px -7.5px 12px rgba(0, 0, 0, 0.5), 0 0 12px #ffffff, 0 0 1px #ffffff;
+}
+
+.item-1 {
+  background: #00f;
+}
+
+.item-2 {
+  background: #0f0;
+}
+
+.item-3 {
+  background: #f00;
+}
+
+.item-4 {
+  background: #ff0;
+}
+
+.item-5 {
+  background: #a4f;
+}
+
+.item-6 {
+  background: linear-gradient(63deg, #999999 23%, transparent 23%) 7px 0, linear-gradient(63deg, transparent 74%, #999999 78%), linear-gradient(63deg, transparent 34%, #999999 38%, #999999 58%, transparent 62%), #444444;
+  background-size: 16px 48px;
+}
+
+.item-7 {
+  background: radial-gradient(circle at 0% 50%, rgba(96, 16, 48, 0) 9px, #661133 10px, rgba(96, 16, 48, 0) 11px) 0px 10px, radial-gradient(at 100% 100%, rgba(96, 16, 48, 0) 9px, #661133 10px, rgba(96, 16, 48, 0) 11px), #88aa33;
+  background-size: 20px 20px;
+}
+
+button {
+  margin: auto;
+}

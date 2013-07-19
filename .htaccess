@@ -1,0 +1,41 @@
+FileETag none
+
+<IfModule mod_mime.c>
+    AddType text/coffeescript .coffee
+    AddType text/sass .sass
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/vnd.microsoft.icon "access plus 1 month"
+    ExpiresByType text/coffeescript "access plus 1 month"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType text/sass "access plus 1 month"
+    ExpiresByType application/x-javascript "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+</IfModule>
+
+<IfModule mod_deflate.c>
+    AddOutPutFilterByType DEFLATE text/html text/css text/coffeescript text/sass
+    AddOutPutFilterByType DEFLATE text/javascript application/javascript application/x-javascript
+    AddOutPutFilterByType DEFLATE application/json
+</IfModule>
+
+# gzip compression if available
+<IfModule mod_gzip.c>
+    mod_gzip_on       Yes
+    mod_gzip_dechunk  Yes
+    mod_gzip_item_include mime text/html
+    mod_gzip_item_include mime text/coffeescript
+    mod_gzip_item_include mime text/css
+    mod_gzip_item_include mime text/sass
+    mod_gzip_item_include mime text/javascript
+    mod_gzip_item_include mime application/javascript
+    mod_gzip_item_include mime application/x-javascript
+    mod_gzip_item_include mime application/json
+    mod_gzip_item_exclude mime ^image/.*
+</IfModule>
