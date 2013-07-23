@@ -21,6 +21,10 @@ do ->
 
             @value = @value % @parent.types.length
             @element.data 'value', @value
+        get: ->
+            @value
+        clicked: (state = true) ->
+            @item.toggleClass 'current', state
     
     class Playfield
         constructor: (selector, @types, @width = 10, @height = 8) ->
@@ -49,6 +53,16 @@ do ->
         set: (x, y, value) ->
             @field[y][x].set value
             @
+        get: (x, y) ->
+            @field[y][x].get()
+        swap: (x0, y0, x1, y1) ->
+            val0 = @get(x0, y0)
+            val1 = @get(x1, y1)
+            @set(x0, y0, val1)
+            @set(x1, y1, val0)
+            @
+        click: (x, y, state = true) ->
+            @field[y][x].clicked(state)
         display: ->
             chained = {}
             for y in [1..@height]
@@ -90,10 +104,21 @@ do ->
     $.getJSON 'types.json', (types) ->
         field = new Playfield "#field", types
 
+        clicked = null
+
         $('.playfield-field').on 'click', ->
             data = $(this).data()
-            field.set data.x, data.y, data.value + 1
-            field.display()
+            if clicked is null
+                clicked = x: data.x, y: data.y
+                field.click(data.x, data.y)
+            else
+                distance = Math.abs(data.x - clicked.x) + Math.abs(data.y - clicked.y)
+                if distance == 1
+                    field.swap(data.x, data.y, clicked.x, clicked.y)
+                    field.display()
+
+                field.click(clicked.x, clicked.y, false)
+                clicked = null
 
         $('#randomize').on 'click', ->
             field.randomize().display()
